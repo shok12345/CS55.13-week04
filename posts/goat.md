@@ -1,6 +1,6 @@
 ---
 title: 'The GOAT Debate'
-date: '2025-09-14'
+date: 'x'
 ---
  
 The GOAT (Greatest of All Time) debate between Michael Jordan and LeBron James is one of the most passionate and polarizing discussions in sports history. Both players are generational talents who dominated their eras, changed the game, and left massive legacies — but they did it in very different ways, which fuels the ongoing debate.
