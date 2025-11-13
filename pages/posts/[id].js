@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   // Return an object containing the paths and fallback configuration
   return {
     // Pass the paths array to Next.js for pre-rendering
-    paths,
+    paths: posts,
     // Set fallback to false to return 404 for paths not returned by getStaticPaths
     fallback: false,
   };
