@@ -7,7 +7,9 @@ import Layout, { siteTitle } from '../components/layout';
 // Import CSS module styles for utility classes
 import utilStyles from '../styles/utils.module.css';
 // Import the Date component for formatting dates
+
 //import Date from '../components/date';
+
 // Import the getSortedPostsData function from the posts library
 import { getSortedPostsData } from '../lib/posts';
  
@@ -84,7 +86,6 @@ export default function Home({ allPostsData}) {
            <br />
            <small className={utilStyles.lightText}>
              {/* Pass the date string to the Date component for formatting */}
-             <Date dateString={date} />
            </small>
          </li>
           ))}
