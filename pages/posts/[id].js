@@ -28,13 +28,10 @@ export async function getStaticProps({ params }) {
  
 // Export an async function that tells Next.js which paths to pre-render at build time
 export async function getStaticPaths() {
-  // Call getAllPostIds to get an array of all post IDs and their paths
-  const paths = getAllPostIds();
-  // Return an object containing the paths and fallback configuration
+  const paths = await getAllPostIds();
+
   return {
-    // Pass the paths array to Next.js for pre-rendering
-    paths: posts,
-    // Set fallback to false to return 404 for paths not returned by getStaticPaths
+    paths,
     fallback: false,
   };
 }
