@@ -7,9 +7,7 @@ import Layout, { siteTitle } from '../components/layout';
 // Import CSS module styles for utility classes
 import utilStyles from '../styles/utils.module.css';
 // Import the Date component for formatting dates
-
 //import Date from '../components/date';
-
 // Import the getSortedPostsData function from the posts library
 import { getSortedPostsData } from '../lib/posts';
  
@@ -78,7 +76,7 @@ export default function Home({ allPostsData}) {
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {/* Use the map function to iterate over the allPostsData array */}
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, title }) => (
            /* Destructure id, date, and title from each post object */
            <li className={utilStyles.listItem} key={id}>
            {/* Create a Link component with dynamic href using template literal */}
@@ -86,6 +84,7 @@ export default function Home({ allPostsData}) {
            <br />
            <small className={utilStyles.lightText}>
              {/* Pass the date string to the Date component for formatting */}
+
            </small>
          </li>
           ))}

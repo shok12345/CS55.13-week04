@@ -3,7 +3,7 @@ import Layout from '../../components/layout';
 // Import the Head component from Next.js for managing document head elements
 import Head from 'next/head';
 // Import the Date component for formatting dates
-import Date from '../../components/date';
+//import Date from '../../components/date';
 // Import CSS module styles for utility classes
 import utilStyles from '../../styles/utils.module.css';
  
@@ -49,7 +49,7 @@ export default function Post({ postData }) {
         <article>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <div className={utilStyles.lightText}>
-            <Date dateString={postData.date} />
+            {/* Optional: remove entirely */}
           </div>
           <div className={utilStyles.postborder} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
