@@ -1,3 +1,64 @@
+import Layout from '../components/layout';
+import Link from 'next/link';
+import { getSortedPostsData } from '../lib/posts';
+
+export async function getStaticProps() {
+  const allData = await getSortedPostsData();
+  return { props: { allData } };
+}
+
+export default function Home({ allData }) {
+  return (
+    <Layout home>
+      <h1>All Posts</h1>
+      <div className="list-group">
+        {allData.map(({ id, name }) => (
+          <Link key={id} href={`/posts/${id}`} className="list-group-item">
+            {name}
+          </Link>
+))}
+
+      </div>
+    </Layout>
+  );
+}
+
+
+
+/*
+import Head from 'next/head';
+import Link from 'next/link';
+import Layout from '../components/layout';
+import { getSortedPostsData } from '../lib/posts';
+
+export async function getStaticProps() {
+  const allData = await getSortedPostsData();
+  return {
+    props: {
+      allData
+    }
+  }
+}
+export default function Home({ allData }) {
+  return (
+      <Layout home>
+        <h1>List of Names</h1>
+        <div className="list-group">
+          {allData.map(({ id, name }) => (
+            <Link key={id} href={`/${id}`} className="list-group-item list-group-item-action">
+              {name}
+            </Link>
+
+          ))}
+        </div>
+      </Layout>
+  );
+}
+*/
+
+
+
+/*
 // Import the Head component from Next.js for managing document head elements
 import Head from 'next/head';
 // Import the Link component from Next.js for client-side navigation
@@ -75,15 +136,15 @@ export default function Home({ allPostsData}) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {/* Use the map function to iterate over the allPostsData array */}
+          {/* Use the map function to iterate over the allPostsData array }
           {allPostsData.map(({ id, title }) => (
-           /* Destructure id, date, and title from each post object */
+           // Destructure id, date, and title from each post object
            <li className={utilStyles.listItem} key={id}>
-           {/* Create a Link component with dynamic href using template literal */}
+           {/* Create a Link component with dynamic href using template literal}
            <Link href={`/posts/${id}`}>{title}</Link>
            <br />
            <small className={utilStyles.lightText}>
-             {/* Pass the date string to the Date component for formatting */}
+             {/* Pass the date string to the Date component for formatting }
 
            </small>
          </li>
@@ -95,3 +156,6 @@ export default function Home({ allPostsData}) {
     </Layout>
   );
 }
+*/
+
+

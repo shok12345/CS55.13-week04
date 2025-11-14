@@ -1,3 +1,36 @@
+import Layout from '../../components/layout';
+import Head from 'next/head';
+import { getAllPostIds, getPostData } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const paths = await getAllPostIds();
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const postData = await getPostData(params.id);
+  return { props: { postData } };
+}
+
+export default function Post({ postData }) {
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <article>
+        <h1>{postData.title}</h1>
+        <div>
+          <small>Author: {postData.author} | Date: {postData.date}</small>
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </article>
+    </Layout>
+  );
+}
+
+
+/*
 // Import the Layout component from the components directory
 import Layout from '../../components/layout';
 // Import the Head component from Next.js for managing document head elements
@@ -49,10 +82,11 @@ export default function Post({ postData }) {
         <article>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <div className={utilStyles.lightText}>
-            {/* Optional: remove entirely */}
+            {/* Optional: remove entirely }
           </div>
           <div className={utilStyles.postborder} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
       </Layout>
     );
   }
+    */
